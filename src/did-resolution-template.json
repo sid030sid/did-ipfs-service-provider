@@ -1,0 +1,43 @@
+{
+    "@context": "https://w3id.org/did-resolution/v1",
+    "didResolutionMetadata": {
+      "contentType": "application/did+ld+json",
+      "retrieved": "2024-10-09T18:07:44Z",
+      "did": {
+        "didString": "did:ipfs:cid",
+        "methodSpecificId": "cid",
+        "method": "ipfs"
+      }
+    },
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://identity.foundation/.well-known/did-configuration/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "did:ipfs:cid",
+      "controller": [
+        "did:example:id"
+      ],
+      "verificationMethod": [
+        {
+          "id": "did:cheqd:testnet:eb41cc0f-b773-440e-b675-0e4310368a52#key-1",
+          "type": "Ed25519VerificationKey2020",
+          "controller": "did:cheqd:testnet:eb41cc0f-b773-440e-b675-0e4310368a52",
+          "publicKeyMultibase": "z6Mknrk6zV4haBiDuzAhenatCeiMzdwHJNopwavP3K56JMZe"
+        }
+      ],
+      "authentication": [
+        "did:cheqd:testnet:eb41cc0f-b773-440e-b675-0e4310368a52#key-1"
+      ],
+      "service": [
+        {
+          "id": "did:cheqd:testnet:eb41cc0f-b773-440e-b675-0e4310368a52#ipfs",
+          "type": "LinkedDomains",
+          "serviceEndpoint": [
+            "https://ipfs.moralis.io:2053/ipfs/QmSyKSffhjhG6aAtDY2wCzcWN3sTjj8MiGQ8KdPWTq4CxX/controller-0.22653309877265038"
+          ]
+        }
+      ]
+    }
+  }
