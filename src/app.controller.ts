@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { PostCreateDidBodyDto } from './dtos/postCreateDidBody.dto';
 import { PostCreateDidQueryDto } from './dtos/postCreateDidQuery.dto';
 
-@ApiTags('Endpoints')
+@ApiTags('did:ipfs service endpoints')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -15,24 +15,24 @@ export class AppController {
   @UseInterceptors(FileInterceptor('file')) //TODO: add pipe that validates the file for use case tagging
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: PostCreateDidBodyDto })
-  createDid(
+  async createDid(
     @UploadedFile() file: Express.Multer.File,
     @Query() query: PostCreateDidQueryDto
-  ): string {
+  ): Promise<string> {
 
     // construct did did document given query parameters tagging, queryable, and body content
+    //TODO
 
-    // create did:ipfs based on visibility level: public or private
-    if(query.private){
-      //this.appService.createDidPrivately(); TODO: construct did docment for uploaded file
-    }else{
-      //this.appService.createDid(); TODO 
-    }
-    return file.originalname;
+    // create did:ipfs based on configurations stated in query
+    const returnObj = await this.appService.createDid(query.private, query.tagging, query.queryable, file) 
+    return returnObj;
   } 
 
   @Get("resolve/:did")
-  getHello(@Param('did') did : string): string {
-    return this.appService.resolveDid(did);
+  async resolveDID(
+    @Param('did') did : string,
+    @Query('private') privateDid : boolean
+  ): Promise<string> {
+    return await this.appService.resolveDid(did, privateDid);
   }
 }
