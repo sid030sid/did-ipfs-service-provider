@@ -1,0 +1,4 @@
+upload and download files from public ipfs via pinata
+add feature for private file storage in ipfs
+add endpoint for creating did:key and creating certs in folder "controller"
+implement logic of create did:ipfs endpoint with cert files in folder "controller" being transformed into verification method... use did:cheqd as template and make it complaint to W3C DID standard
