@@ -24,7 +24,7 @@ export class AppController {
   }
 
   @Post("createDidIpfs")
-  @UseInterceptors(FileInterceptor('file')) //TODO in future: add pipe that validates the file for use case tagging
+  @UseInterceptors(FileInterceptor('file'))
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: PostCreateDidBodyDto })
   async createDid(
