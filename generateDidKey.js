@@ -42,7 +42,7 @@ const generateDidKey = async () => {
     console.log("Private Key in PEM format:\n", privateKeyPem);
 
     // Set DID as .env variable
-    fs.appendFileSync('.env', `ISSUER_DID=${did}`);
+    fs.appendFileSync('.env', `DID=${did}`);
 
     // store private and public key as pem file in certs folder of backend
     fs.writeFileSync('./certs/private.pem', privateKeyPem);

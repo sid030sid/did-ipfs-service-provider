@@ -9,7 +9,10 @@ This repo contains a service provider for did:ipfs operations. The did:ipfs serv
     - ``PINATA_API_GATEWAY``: stores the user specific IPFS gateway hosted by Pinata 
 4. add DID used as controller for did:ipfs DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
-    - Option 2: add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` (note: this option has not been tested, use with caution)
+    - Option 2:
+        1. add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` 
+        2. add env varibale `DID` to `.env` file and set it to your DID
+        (note: this option has not been tested, use with caution)
 5. run `npm start` or `npm run start:dev` in terminal while being in root folder
 6. open Swagger UI by entering `http://localhost:3000/api` in your browser
 
@@ -33,3 +36,6 @@ note: Private DID Documents are only possible when one uses an own IPFS Cluster 
 ## What challenges did I face during creation of _did:ifps?
 
 ## What's next for _did:ipfs_?
+
+# NOTE: self-referential CIDs
+[W3C's note on intermediate representations of DID Documents](https://www.w3.org/TR/did-core/#did-subject) allows did:ipfs to store a non-comformant DID Document as long as the fully resolved DID Documenent. This enables did:ipfs to bypass the issue of self-referential CIDs which occurs when a IPFS file wants to mention in its content its own CID.

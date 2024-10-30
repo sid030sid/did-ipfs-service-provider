@@ -10,7 +10,6 @@ async function bootstrap() {
     .setDescription('This UI lets you interact with the did:ipfs service provider.')
     .setVersion('1.0')
     .addTag('did:ipfs service endpoints')
-    .addTag('utils')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);

@@ -5,7 +5,7 @@ export class PostCreateDidQueryDto {
     description: 'If true, did:ipfs DID Document is privately stored using Pinata and its File API.',
     default: false
   })
-  private: boolean;
+  privateDidDoc: boolean;
   
 
   @ApiProperty({
