@@ -7,9 +7,11 @@ This repo contains a service provider for did:ipfs operations. The did:ipfs serv
 3. add Pinata releated environment variables to `.env` file:
     - ``PINATA_API_JWT``: stores the API Access token for Pinata's APIs
     - ``PINATA_API_GATEWAY``: stores the user specific IPFS gateway hosted by Pinata 
-3. add DID used as controller for did:ipfs DIDs 
+4. add DID used as controller for did:ipfs DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
     - Option 2: add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` (note: this option has not been tested, use with caution)
+5. run `npm start` or `npm run start:dev` in terminal while being in root folder
+6. open Swagger UI by entering `http://localhost:3000/api` in your browser
 
 ## Usage
 ### How to create a did:ipfs?

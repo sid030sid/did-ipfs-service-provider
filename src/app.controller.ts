@@ -1,7 +1,7 @@
-import { Controller, Get, Param, Post, Query, Body, UseInterceptors, UploadedFile} from '@nestjs/common';
-import { ApiTags, ApiConsumes, ApiBody} from '@nestjs/swagger';
+import { Controller, Get, Param, Post, Query, Body, UseInterceptors, UploadedFile, Res} from '@nestjs/common';
+import { ApiTags, ApiConsumes, ApiBody, ApiExcludeEndpoint} from '@nestjs/swagger';
 import { FileInterceptor} from '@nestjs/platform-express';
-import { Express } from 'express';
+import { Express, Response} from 'express';
 import { AppService } from './app.service';
 import { PostCreateDidBodyDto } from './dtos/postCreateDidBody.dto';
 import { PostCreateDidQueryDto } from './dtos/postCreateDidQuery.dto';
@@ -10,6 +10,12 @@ import { PostCreateDidQueryDto } from './dtos/postCreateDidQuery.dto';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get('/')
+  @ApiExcludeEndpoint() 
+  getRoot(@Res() res: Response) {
+    res.send("Please move to `http://localhost:3000/api` for interacting with did:ipfs service!");
+  }
 
   @Post("createDidIpfs")
   @UseInterceptors(FileInterceptor('file')) //TODO in future: add pipe that validates the file for use case tagging
