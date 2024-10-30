@@ -5,6 +5,7 @@ import { Express, Response} from 'express';
 import { AppService } from './app.service';
 import { PostCreateDidBodyDto } from './dtos/postCreateDidBody.dto';
 import { PostCreateDidQueryDto } from './dtos/postCreateDidQuery.dto';
+import { generateDidDocument } from './utils/didDocumentGenerator';
 
 @ApiTags('did:ipfs service endpoints')
 @Controller()
@@ -26,13 +27,14 @@ export class AppController {
     @Query() query: PostCreateDidQueryDto
   ): Promise<string> {
 
-    // convert 
+    // convert file
+    const base64FileString = file.buffer.toString('base64');
 
     // construct did did document given query parameters tagging, queryable, and body content
-    //TODO
+    const didDocuemnt = generateDidDocument(query.tagging, query.queryable, base64FileString);
 
     // create did:ipfs based on configurations stated in query
-    const returnObj = await this.appService.createDid(query.private, query.tagging, query.queryable, file) 
+    const returnObj = await this.appService.createDid(query.private, query.tagging, query.queryable, didDocuemnt) 
     return returnObj;
   } 
 

@@ -25,7 +25,7 @@ export class AppService {
     });
   }
 
-  async createDid(privateDid:boolean, tagging, queryable, file): Promise<string> {
+  async createDid(privateDid: boolean, tagging: boolean, queryable: boolean, file): Promise<string> {
     // create did:ipfs based on visibility level: public or private
     try{
       let returnString : string;
