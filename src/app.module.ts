@@ -7,7 +7,7 @@ import { UtilsService } from './utils.service';
 
 @Module({
   imports: [ConfigModule.forRoot({isGlobal: true})],
-  controllers: [AppController, UtilsController],
+  controllers: [AppController], //, UtilsController
   providers: [AppService, UtilsService],
 })
 export class AppModule {}
