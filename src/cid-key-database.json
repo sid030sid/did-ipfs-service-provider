@@ -1,0 +1,12 @@
+[
+  {
+    "cid": "cid",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaQb4LtTlAPbjs265VNLIk+X/j/SKJdU+cxJ5XRt8Vz1W24JkVB3NohrO9DEP0pypVcsQ20FQu8eo4DkQinrVYQ==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgvPWULM0Vpax4c/NMMoh+GxBBQE3mwBlL7S5/zWNqJ26hRANCAARpBvgu1OUA9uOzbrlU0siT5f+P9Iol1T5zEnldG3xXPVbbgmRUHc2iGs70MQ/SnKlVyxDbQVC7x6jgORCKetVh"
+  },
+  {
+    "cid": "bafybeifctb5sjjis7dszbkbvuyva6bxafolunpwylv5kvl2rlsuha6j3he",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAETQQgV79WwsrcF6HsmJoCetZSvjnVRjga2gc15urHvjOZxJxlDWFm/Z5Jy07WlfO8CQJlL2Hz3FLQlU2EIcjr2Q==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgKNdsGjOHFTljsQgVuNsQVcfMfDsb41y7Kgp2CdNX6uihRANCAARNBCBXv1bCytwXoeyYmgJ61lK+OdVGOBraBzXm6se+M5nEnGUNYWb9nknLTtaV87wJAmUvYfPcUtCVTYQhyOvZ"
+  }
+]

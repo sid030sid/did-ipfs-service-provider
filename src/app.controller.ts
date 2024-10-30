@@ -8,7 +8,8 @@ import { PostCreateDidQueryDto } from './dtos/postCreateDidQuery.dto';
 import { DidDocResolution } from './interfaces/didDocResolution.interface';
 import { generateKeyPairSync } from 'crypto';
 import { Jwk } from './interfaces/jwk.interface';
-import { writeFileSync, readFileSync, existsSync } from 'fs';
+import { writeFileSync, readFileSync} from 'fs';
+import { join } from 'path';
 
 
 @ApiTags('did:ipfs service endpoints')
@@ -31,21 +32,23 @@ export class AppController {
     @Query() query: PostCreateDidQueryDto
   ): Promise<string> {
 
-    // get query parameters
-    const { privateDidDoc, tagging, queryable } = query;
+    // get query parameters in boolean format
+    const privateDidDoc = query.privateDidDoc ? String(query.privateDidDoc) === "true" : false;
+    const tagging = query.tagging ? String(query.tagging) === "true" : false;
+    const queryable = query.queryable ? String(query.queryable) === "true" : false;
 
     // convert file
     const base64FileString = file.buffer.toString('base64');
 
     // tag the file, if tagging is set to true
     let tags = []
-    if(tagging){
+    if(tagging === true){
       tags = this.appService.tagFile(base64FileString);
     }
 
     // if queryable is set to true, make the file queryable
     let queryProperties = []
-    if(queryable){
+    if(queryable === true){
       queryProperties = this.appService.qeuryFile(base64FileString);
     }
 
@@ -102,18 +105,14 @@ export class AppController {
         ],
         "file": base64FileString //TODO in future: allow multiple files
     }
-
-    // create did:ipfs based on configurations stated in query
-    const returnObj = await this.appService.uploadDidDocViaPinata(privateDidDoc, didDocument) 
-    console.log(returnObj);
-
-    // get cid
-    const cid: string = "cid"
+    
+    // upload did document to ipfs
+    const cid = await this.appService.uploadDidDocViaPinata(privateDidDoc, didDocument) 
 
     // store private key in local cid-key database for better UX
-    const db = JSON.parse(readFileSync("./cid-key-database.json", 'utf-8'));
+    const db = JSON.parse(readFileSync(join(process.cwd(), 'src', 'cid-key-database.json'), 'utf-8'));
     db.push({cid: cid, publicKey: publicKeyBase64, privateKey: Buffer.from(privateKey).toString('base64')});
-    writeFileSync("./cid-key-database.json", JSON.stringify(db, null, 2), 'utf-8');
+    writeFileSync(join(process.cwd(), 'src', 'cid-key-database.json'), JSON.stringify(db, null, 2), 'utf-8');
 
     // return did:ipfs
     return "did:ipfs:"+cid;
@@ -123,7 +122,8 @@ export class AppController {
   async resolveDID(
     @Param('didIpfs') did : string,
     @Query('private') privateDidDoc : boolean
-  ): Promise<DidDocResolution> {
-    return await this.appService.resolveDid(did, privateDidDoc);
+  ): Promise<DidDocResolution | string> {
+    const privateDidDocBool = privateDidDoc ? String(privateDidDoc) === "true" : false;
+    return await this.appService.resolveDid(did, privateDidDocBool);
   }
 }

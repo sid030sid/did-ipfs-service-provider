@@ -7,7 +7,6 @@ export class PostCreateDidQueryDto {
   })
   privateDidDoc: boolean;
   
-
   @ApiProperty({
     description: 'If true, file in did:ipfs DID Document is queryable through IPFS search engine.',
     required: false

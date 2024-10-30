@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { PinataSDK as PinataWeb3SDK } from "pinata-web3";
 import { PinataSDK as PinataFileApiSDK } from "pinata";
 import { DidDocResolution } from './interfaces/didDocResolution.interface';
-import Crypto from 'crypto';
+import {createPublicKey, createPrivateKey, randomUUID} from 'crypto';
 
 //import interfaces
 import { Jwk } from './interfaces/jwk.interface';
@@ -35,11 +35,11 @@ export class AppService {
     // create did:ipfs based on visibility level: public or private
     try{
 
-      const filename = Crypto.randomUUID() //create nonce to name file
+      const filename = randomUUID() //create nonce to name file
       const file = new File([JSON.stringify(didDoc)], filename, { type: "text/plain" });
 
       let returnString : string;
-      if(privateDidDoc=true){
+      if(privateDidDoc === true){
         console.log("upload private ipfs attempt")
         returnString = await this.uploadToPrivateIpfsViaPinata(file);
       }else{
@@ -55,34 +55,39 @@ export class AppService {
     }
   }
 
-  async resolveDid(did: string, privateDidDoc: boolean): Promise<DidDocResolution> {
+  async resolveDid(did: string, privateDidDoc: boolean): Promise<DidDocResolution | string> {
     // get cid from did
     const cid = did.split(':')[2];
 
     // retrieve data from public or private ipfs via pinata
-    let data : string;
-    if(privateDidDoc=true){
+    let data;
+    if(privateDidDoc === true){
       data = await this.downloadFromPrivateIpfsViaPinata(cid);
     }else{
       data = await this.downloadFromIpfsViaPinata(cid);
     }
 
-    // construct did document resolution
-    const didDocResolution = {
-      "@context": "https://w3id.org/did-resolution/v1",
-      "didResolutionMetadata": {
-        "contentType": "application/did+ld+json",
-        "retrieved": new Date().toISOString(),
-        "did": {
-          "didString": "did:ipfs:"+cid,
-          "methodSpecificId": cid,
-          "method": "ipfs"
-        }
-      },
-      "didDocument": JSON.parse(data.replace("CID_PLACEHOLDER", cid))
+    if(data === "error"){
+      return "DID not found. Please check DID id and privacy status of DID";
+    }else{
+
+      // construct did document resolution
+      const didDocResolution = {
+        "@context": "https://w3id.org/did-resolution/v1",
+        "didResolutionMetadata": {
+          "contentType": "application/did+ld+json",
+          "retrieved": new Date().toISOString(),
+          "did": {
+            "didString": "did:ipfs:"+cid,
+            "methodSpecificId": cid,
+            "method": "ipfs"
+          }
+        },
+        "didDocument": JSON.parse(data.replaceAll("CID_PLACEHOLDER", cid))
+      }
+      
+      return didDocResolution;
     }
-    
-    return didDocResolution;
   }
 
   bs64ToJwk(bs64key: string, keyType: string): Jwk {
@@ -94,11 +99,11 @@ export class AppService {
     let key;
     let jwk;
     if (keyType.toUpperCase() === "PRIVATE") {
-      key = Crypto.createPrivateKey(pem);
+      key = createPrivateKey(pem);
       // Export JWK including the private key parameter (`d`)
       jwk = key.export({ format: "jwk" }); // This includes x, y, and d for EC keys
     } else {
-      key = Crypto.createPublicKey(pem);
+      key = createPublicKey(pem);
       // Export JWK with only public components
       jwk = key.export({ format: "jwk" }); // This includes x and y for EC keys
     }
@@ -145,21 +150,21 @@ export class AppService {
 
   private async downloadFromIpfsViaPinata(cid : string): Promise<string> {
     try {
-      const data = await this.pinataIpfsApi.gateways.get(cid);
-      return JSON.stringify(data);
+      const res = await this.pinataIpfsApi.gateways.get(cid);
+      return JSON.stringify(res.data);
     } catch (error) { 
       console.log(error);
-      return error;
+      return "error";
     }
   }
 
   private async downloadFromPrivateIpfsViaPinata(cid : string): Promise<string> {
     try{
-      const data = await this.pinataFileApi.gateways.get(cid);
-      return JSON.stringify(data);
+      const res = await this.pinataFileApi.gateways.get(cid);
+      return JSON.stringify(res.data);
     }catch(error){
       console.log(error);
-      return error;
+      return "error";
     }
   }
 }
