@@ -14,7 +14,7 @@ export class AppController {
   @Get('/')
   @ApiExcludeEndpoint() 
   getRoot(@Res() res: Response) {
-    res.send("Please move to `http://localhost:3000/api` for interacting with did:ipfs service!");
+    res.send("<h1>Please move to <a href=http://localhost:3000/api>http://localhost:3000/api</a> for interacting with did:ipfs service!</h1>");
   }
 
   @Post("createDidIpfs")
