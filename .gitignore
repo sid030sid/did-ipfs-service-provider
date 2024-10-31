@@ -1,5 +1,6 @@
 # additional files to ignore
 certs/*
+!certs/.gitkeep
 
 # compiled output
 /dist

@@ -7,12 +7,19 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('did:ipfs Service Provider')
-    .setDescription('This UI lets you interact with the did:ipfs service provider.')
+    .setDescription('With this UI did:ipfs operations can be performed.')
     .setVersion('1.0')
-    .addTag('did:ipfs service endpoints')
+    .addTag('did:ipfs operations')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup(
+    'api', 
+    app, 
+    document, 
+    {swaggerOptions: 
+      { defaultModelsExpandDepth: -1 } //to hide schemas in swagger ui
+    }
+  );
 
   await app.listen(3000);
 }

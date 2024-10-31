@@ -40,10 +40,8 @@ export class AppService {
 
       let returnString : string;
       if(privateDidDoc === true){
-        console.log("upload private ipfs attempt")
         returnString = await this.uploadToPrivateIpfsViaPinata(file);
       }else{
-        console.log("upload public ipfs attempt")
         returnString = await this.uploadToIpfsViaPinata(file);
       }
       

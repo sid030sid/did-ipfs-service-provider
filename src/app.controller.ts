@@ -12,7 +12,7 @@ import { writeFileSync, readFileSync} from 'fs';
 import { join } from 'path';
 
 
-@ApiTags('did:ipfs service endpoints')
+@ApiTags('did:ipfs operations')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -126,11 +126,11 @@ export class AppController {
   } 
 
   @Get("resolve/:didIpfs")
-  @ApiOperation({ summary: 'Resolve any did:ipfs, e. g., to get its DID Document\n(Note: in case of error after calling endpoint, please restart the server and check values for "didIpfs" and "private")'})
+  @ApiOperation({ summary: 'Resolve any did:ipfs, e. g., to get its DID Document\n(Note: in case of error after calling endpoint, please restart the server and check values for "didIpfs" and "privateDidDoc")'})
   @ApiParam({name: 'didIpfs', description: 'Input in format did:ipfs:cid, e. g. did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq'})
   async resolveDID(
     @Param('didIpfs') did : string,
-    @Query('private') privateDidDoc : boolean
+    @Query('privateDidDoc') privateDidDoc : boolean
   ): Promise<DidDocResolution | string> {
     const privateDidDocBool = privateDidDoc ? String(privateDidDoc) === "true" : false;
     return await this.appService.resolveDid(did, privateDidDocBool);

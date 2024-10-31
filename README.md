@@ -1,5 +1,5 @@
 # did:ipfs service provider
-This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [nestjs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (see more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that enhance existing DID methods, significantly enriching the overall landscape of DIDs.
+This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [NestJs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (see more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that enhance existing DID methods, significantly enriching the overall landscape of DIDs.
 
 ## Set up
 1. run ``npm install`` in terminal while in root folder
@@ -80,4 +80,4 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 3. Conduct a comprehensive comparative analysis between _did:ipfs_ and other DID methods.
 4. Develop _did:ipfs_ services, such as an IPFS search engine and an IPFS-based machine learning data marketplace.
 5. Strengthen IPFS data permanence by facilitating connections between file uploaders and storage nodes for exchanging storage proofs to ensure permanence guarantees.
-6. Add trustworthy timestamp inside _did:ipfs_ DID Documents (e. g. by integrating QTSPs)
+6. Implement trustworthy timestamps within did:ipfs DID Documents, potentially through the integration of Qualified Trust Service Providers (QTSPs).
