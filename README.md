@@ -50,7 +50,7 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
 1. **Secure Documentation of Authorship:** _did:ipfs_ DID Documents name the DID controller, who is the uploader of the file stored as a Base64 string in the "file" attribute of _did:ipfs_ DID Documents. This provides a simple solution for recording the authorship of content uploaded to IPFS without needing on-chain CID storage, avoiding the performance limits and high costs of blockchain transactions. To enhance trust in authorship, _did:ipfs_ will enable DID controllers to cryptographically sign their content before DID creation, adding a layer of security to the authorship record.
 
-2. **Enabling Secure Authentication for IPFS File Access:** By including an authentication key, _did:ipfs_ enables both human users and machines to securely interact with IPFS files, allowing for verified access and interactions that enhance the utility and security of IPFS-based resources.
+2. **Enabling Secure Authentication for IPFS File Access and DApp Integration:** By including an authentication key, _did:ipfs_ enables both human users and machines to securely interact with IPFS files, allowing for verified access and seamless integration with other DApps that recognize W3C DID standards.
 
 3. **Enhanced IPFS Utility Through _did:ipfs_ Services:** _did:ipfs_ provides the foundation for additional services that can unlock IPFS’s full potential and address some of its core limitations. Examples of these services include:
 
