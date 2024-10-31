@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Post, Query, Body, UseInterceptors, UploadedFile, Res} from '@nestjs/common';
-import { ApiTags, ApiConsumes, ApiBody, ApiExcludeEndpoint, ApiOperation} from '@nestjs/swagger';
+import { ApiTags, ApiConsumes, ApiBody, ApiExcludeEndpoint, ApiOperation, ApiParam} from '@nestjs/swagger';
 import { FileInterceptor} from '@nestjs/platform-express';
 import { Express, Response} from 'express';
 import { AppService } from './app.service';
@@ -27,7 +27,7 @@ export class AppController {
   @UseInterceptors(FileInterceptor('file'))
   @ApiConsumes('multipart/form-data')
   @ApiBody({ type: PostCreateDidBodyDto })
-  @ApiOperation({ summary: 'Create did:ipfs with locally set up DID' })
+  @ApiOperation({ summary: 'Create did:ipfs with locally set up DID (Note: in case of error after calling endpoint, please restart the server)' })
   async createDid(
     @UploadedFile() file: Express.Multer.File,
     @Query() query: PostCreateDidQueryDto
@@ -126,7 +126,8 @@ export class AppController {
   } 
 
   @Get("resolve/:didIpfs")
-  @ApiOperation({ summary: 'Resolve any did:ipfs, e. g., to get its DID Document\n(Note: in case of error, please check "didIpfs" value and "privacy" value)' })
+  @ApiOperation({ summary: 'Resolve any did:ipfs, e. g., to get its DID Document\n(Note: in case of error after calling endpoint, please restart the server and check values for "didIpfs" and "private")'})
+  @ApiParam({name: 'didIpfs', description: 'Input in format did:ipfs:cid, e. g. did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq'})
   async resolveDID(
     @Param('didIpfs') did : string,
     @Query('private') privateDidDoc : boolean
