@@ -20,7 +20,7 @@ export class PostCreateDidQueryDto {
   tagging: boolean; // for use case of tagging data for ML model training
 
   @ApiProperty({
-    description: 'URL for proof submission for verifiability layer.',
+    description: 'URL for proof submission between file uploader (= DID controller) and IPFS node operators.',
     required: false
   })
   urlForProofSubmission: string; // for use case of verifiability layer for verifiable data replication

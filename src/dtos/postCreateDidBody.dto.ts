@@ -8,12 +8,4 @@ export class PostCreateDidBodyDto {
     required: true
   })
   file: any;
-
-  @ApiProperty({
-    type: 'string',
-    format: 'binary',
-    description: 'Upload Verifiable Presentation of your Personhood Credential.',
-    required: false
-  })
-  personhoodCredential: any;
 }
