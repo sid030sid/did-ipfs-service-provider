@@ -8,14 +8,13 @@ This repository provides a service for managing _did:ipfs_ operations. The `did:
     - ``PINATA_API_JWT``: stores your API Access token for Pinata's APIs
     - ``PINATA_API_GATEWAY``: stores your personal IPFS gateway hosted by Pinata 
 
-**Note**: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
+    **Note**: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
 4. add DID used as controller for _did:ipfs_ DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
-    - Option 2:
+    - Option 2 (**Note**: This option has not been tested, use with caution!):
         1. add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` 
         2. add env varibale `DID` to `.env` file and set it to your DID
 
-    **Note**: This option has not been tested, use with caution!
 5. run `npm start` in terminal while being in root folder
 6. open Swagger UI by entering `http://localhost:3000/api` in your browser
 
