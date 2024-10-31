@@ -1,5 +1,5 @@
 # did:ipfs service provider
-This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [nestjs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (See more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that enhance existing DID methods, significantly enriching the overall landscape of DIDs.
+This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [nestjs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (see more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that enhance existing DID methods, significantly enriching the overall landscape of DIDs.
 
 ## Set up
 1. run ``npm install`` in terminal while in root folder
@@ -7,13 +7,15 @@ This repository provides a service for managing _did:ipfs_ operations. The `did:
 3. add Pinata releated environment variables to `.env` file:
     - ``PINATA_API_JWT``: stores your API Access token for Pinata's APIs
     - ``PINATA_API_GATEWAY``: stores your personal IPFS gateway hosted by Pinata 
-    **Note**: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
+
+**Note**: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
 4. add DID used as controller for _did:ipfs_ DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
     - Option 2:
         1. add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` 
         2. add env varibale `DID` to `.env` file and set it to your DID
-        **Note**: This option has not been tested, use with caution!
+
+    **Note**: This option has not been tested, use with caution!
 5. run `npm start` in terminal while being in root folder
 6. open Swagger UI by entering `http://localhost:3000/api` in your browser
 
@@ -27,7 +29,7 @@ Simply call ``/createDidIpfs`` endpoint.
 Simply call ``/resolve/{didIpfs}`` endpoint while setting path parameter `didIpfs` to the _did:ipfs_ you want to resolve.
 
 ### How to create a _did:ipfs_ with private DID Document?
-To create a private DID Documents, simply set the `privateDidDoc` query parameter to `true` when calling the `/createDidIpfs` endpoint. Currently, the `did:ipfs service provider` uses [Pinata's File API](https://pinata.cloud/features#file-api) to create private DID Documents. Other methods for ensuring privacy in _did:ipfs_ documents are possible, such as using private [IPFS Clusters](https://ipfscluster.io/).
+To create private DID Documents, simply set the `privateDidDoc` query parameter to `true` when calling the `/createDidIpfs` endpoint. Currently, the `did:ipfs service provider` uses [Pinata's File API](https://pinata.cloud/features#file-api) to create private DID Documents. Other methods for ensuring privacy in _did:ipfs_ documents are possible, such as using private [IPFS Clusters](https://ipfscluster.io/).
 
 
 
