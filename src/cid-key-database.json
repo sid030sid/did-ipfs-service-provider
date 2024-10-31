@@ -3,5 +3,10 @@
     "cid": "bafybeifctb5sjjis7dszbkbvuyva6bxafolunpwylv5kvl2rlsuha6j3he",
     "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAETQQgV79WwsrcF6HsmJoCetZSvjnVRjga2gc15urHvjOZxJxlDWFm/Z5Jy07WlfO8CQJlL2Hz3FLQlU2EIcjr2Q==",
     "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgKNdsGjOHFTljsQgVuNsQVcfMfDsb41y7Kgp2CdNX6uihRANCAARNBCBXv1bCytwXoeyYmgJ61lK+OdVGOBraBzXm6se+M5nEnGUNYWb9nknLTtaV87wJAmUvYfPcUtCVTYQhyOvZ"
+  },
+  {
+    "cid": "bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE04SvqS8lppFTbFx7z+sYJZ/G7tGfDX6o3TiKXjii8NgIYT6iP+jRu8orub2EUO3M8py0y4gjqj0FSU/1s8i7pg==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgBfI+ts7ZUAZpjWLJ23kEAR2PChV4RVui9M8dmyaXI9OhRANCAATThK+pLyWmkVNsXHvP6xgln8bu0Z8NfqjdOIpeOKLw2AhhPqI/6NG7yiu5vYRQ7czynLTLiCOqPQVJT/WzyLum"
   }
 ]

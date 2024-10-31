@@ -44,7 +44,7 @@ export class AppService {
         returnString = await this.uploadToPrivateIpfsViaPinata(file);
       }else{
         console.log("upload public ipfs attempt")
-        returnString= await this.uploadToIpfsViaPinata(file);
+        returnString = await this.uploadToIpfsViaPinata(file);
       }
       
       return returnString;
@@ -56,37 +56,42 @@ export class AppService {
   }
 
   async resolveDid(did: string, privateDidDoc: boolean): Promise<DidDocResolution | string> {
-    // get cid from did
-    const cid = did.split(':')[2];
+    try{
+      // get cid from did
+      const cid = did.split(':')[2];
 
-    // retrieve data from public or private ipfs via pinata
-    let data;
-    if(privateDidDoc === true){
-      data = await this.downloadFromPrivateIpfsViaPinata(cid);
-    }else{
-      data = await this.downloadFromIpfsViaPinata(cid);
-    }
-
-    if(data === "error"){
-      return "DID not found. Please check DID id and privacy status of DID";
-    }else{
-
-      // construct did document resolution
-      const didDocResolution = {
-        "@context": "https://w3id.org/did-resolution/v1",
-        "didResolutionMetadata": {
-          "contentType": "application/did+ld+json",
-          "retrieved": new Date().toISOString(),
-          "did": {
-            "didString": "did:ipfs:"+cid,
-            "methodSpecificId": cid,
-            "method": "ipfs"
-          }
-        },
-        "didDocument": JSON.parse(data.replaceAll("CID_PLACEHOLDER", cid))
+      // retrieve did doc data from public or private ipfs via pinata
+      let data;
+      if(privateDidDoc === true){
+        data = await this.downloadFromPrivateIpfsViaPinata(cid);
+      }else{
+        data = await this.downloadFromIpfsViaPinata(cid);
       }
-      
-      return didDocResolution;
+
+      // check if did doc data exists
+      if(data === "error"){
+        return "DID not found. Please check DID id and privacy status of DID";
+      }else{
+        // construct did document resolution
+        const didDocResolution = {
+          "@context": "https://w3id.org/did-resolution/v1",
+          "didResolutionMetadata": {
+            "contentType": "application/did+ld+json",
+            "retrieved": new Date().toISOString(),
+            "did": {
+              "didString": "did:ipfs:"+cid,
+              "methodSpecificId": cid,
+              "method": "ipfs"
+            }
+          },
+          "didDocument": JSON.parse(data.replaceAll("CID_PLACEHOLDER", cid))
+        }
+        
+        return didDocResolution; 
+      }
+    }catch(error){
+      console.log(error);
+      return "DID not found. Please check DID id and privacy status of DID";
     }
   }
 
@@ -132,7 +137,6 @@ export class AppService {
       const upload = await this.pinataIpfsApi.upload.file(file);
       return upload.IpfsHash;
     } catch (error) {
-      console.log(error);
       return error;
     }
   }
@@ -143,7 +147,6 @@ export class AppService {
       const upload = await this.pinataFileApi.upload.file(file);
       return upload.cid;
     } catch (error) {
-      console.log(error);
       return error;
     }
   }
@@ -152,19 +155,17 @@ export class AppService {
     try {
       const res = await this.pinataIpfsApi.gateways.get(cid);
       return JSON.stringify(res.data);
-    } catch (error) { 
-      console.log(error);
-      return "error";
+    } catch (error: any) { 
+      return error;
     }
   }
 
-  private async downloadFromPrivateIpfsViaPinata(cid : string): Promise<string> {
-    try{
+  private async downloadFromPrivateIpfsViaPinata(cid: string): Promise<string> {
+    try {
       const res = await this.pinataFileApi.gateways.get(cid);
       return JSON.stringify(res.data);
-    }catch(error){
-      console.log(error);
-      return "error";
+    } catch (error: any) {
+      return error;
     }
   }
 }
