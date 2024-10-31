@@ -1,5 +1,5 @@
 # did:ipfs service provider
-This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [NestJs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (see more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that enhance existing DID methods, significantly enriching the overall landscape of DIDs.
+This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [NestJs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in the [InterPlanetary File System (IPFS)](https://ipfs.tech/), unlocking its full potential and addressing some of IPFS’s core limitations (see more [here](#about-didipfs)). Additionally, _did:ipfs_  offers distinct DID properties that augment existing DID methods, enriching the overall landscape of DIDs.
 
 ## Set up
 1. run ``npm install`` in terminal while in root folder
