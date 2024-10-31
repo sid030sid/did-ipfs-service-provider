@@ -1,4 +1,4 @@
-# did:ipfs service provider
+# did:ipfs Service Provider
 This repository introduces _did:ipfs_ and the `did:ipfs service provider`. _did:ipfs_ is a novel Decentralized Identifier (DID) method designed to enhance the identification of files in the [InterPlanetary File System (IPFS)](https://ipfs.tech/), unlocking its full potential and addressing some of its core limitations (see more [here](#utility-of-didipfs-for-identifying-ipfs-files)). Additionally, _did:ipfs_ offers distinct DID properties that augment existing DID methods, enriching the overall landscape of DIDs (see more [here](#utility-of-didipfs-as-a-did-method)). The `did:ipfs service provider` is a [NestJs](https://nestjs.com/) API for performing _did:ipfs_ operations, such as DID creation and resolution. The API can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction).
 
 ## Set up
@@ -33,7 +33,7 @@ To create private DID Documents, simply set the `privateDidDoc` query parameter 
 
 
 ## About _did:ipfs_
-### Utility of _did:ipfs_ as a DID method
+### Utility of _did:ipfs_ as a DID Method
 As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
 1. **Unlimited Data Scalability:** Unlike other DID methods, _did:ipfs_ imposes no size limitations on DID Documents. Blockchain-based methods, such as `did:cheqd`, are restricted by block size, while off-chain methods like `did:key` or `did:web` are limited by their storage environment and resources. With _did:ipfs_, large or complex DID Documents can be created and stored without restriction, allowing for the inclusion of various data types, such as images, tables, or videos. 
@@ -57,7 +57,7 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
 3. **Enhanced IPFS Utility Through _did:ipfs_ Services:** _did:ipfs_ provides the foundation for additional services that can unlock IPFS’s full potential and address some of its core limitations. Examples of these services include:
 
-   - **Connecting IPFS Uploaders and Storage Nodes:** Since DID controllers in _did:ipfs_ are the uploaders of files stored in the "file" attribute, IPFS node operators (who store these files) can connect with the uploaders. This connection can be established by storing a communication URL in a LinkedDomains service endpoint within the DID Document. This allows node operators to submit proofs of data storage, helping to ensure data permanence and build trust in IPFS’s ability to retain files, countering concerns due to node operator anonymity and lack of storage incentives.
+   - **Connecting Uploaders and Node Operators in IPFS:** Since DID controllers in _did:ipfs_ are the uploaders of files stored in the "file" attribute, IPFS node operators (who store these files) can connect with the uploaders. This connection can be established by storing a communication URL in a LinkedDomains service endpoint within the DID Document. This allows node operators to submit proofs of data storage, helping to ensure data permanence and build trust in IPFS’s ability to retain files, countering concerns due to node operator anonymity and lack of storage incentives.
 
    - **IPFS Search Engine:** Despite widespread adoption, IPFS lacks an efficient search mechanism for its content ([source](https://discuss.ipfs.tech/t/ipfs-search-com-shutdown/16622)). _did:ipfs_ can add a metadata layer essential for making IPFS files searchable. By adding a "queryProperties" service endpoint to DID Documents, _did:ipfs_ can store metadata about the file in the "file" attribute, making content more easily findable through search engines.
 
@@ -78,5 +78,5 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 2. Achieve full compliance of _did:ipfs_ with the W3C DID standard and DIF’s Universal Resolver.
 3. Conduct a comprehensive comparative analysis between _did:ipfs_ and other DID methods.
 4. Develop _did:ipfs_ services, such as an IPFS search engine and an IPFS-based machine learning data marketplace.
-5. Strengthen IPFS data permanence by facilitating connections between file uploaders and storage nodes for exchanging storage proofs to ensure permanence guarantees.
+5. Strengthen IPFS data permanence by facilitating connections between file uploaders and IPFS node operators for exchanging storage proofs to ensure permanence guarantees.
 6. Implement trustworthy timestamps within did:ipfs DID Documents, potentially through the integration of Qualified Trust Service Providers (QTSPs).
