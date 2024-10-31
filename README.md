@@ -80,3 +80,4 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 3. Conduct a comprehensive comparative analysis between _did:ipfs_ and other DID methods.
 4. Develop _did:ipfs_ services, such as an IPFS search engine and an IPFS-based machine learning data marketplace.
 5. Strengthen IPFS data permanence by facilitating connections between file uploaders and storage nodes for exchanging storage proofs to ensure permanence guarantees.
+6. Add trustworthy timestamp inside _did:ipfs_ DID Documents (e. g. by integrating QTSPs)
