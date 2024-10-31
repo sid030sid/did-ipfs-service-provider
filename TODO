@@ -1,6 +1,0 @@
-elaborate use cases of did:ipfs
-comparative analysis
-think about sensefulness of using personhood credential in the locally run swagger
-improve error handling, especially when the wrong private value is chosen in did:ipfs resolution endpoint
-After Hackathon: show this repo to Markus Sabadello and extend the comparative analysis by more aspects that differentiat did:ipfs form other did methods --> the comaprative analysis and collection of use cases are the two parts of the evaluation section of the research paper
-After Hackathon: write research paper about did:ipfs: https://www.overleaf.com/project/6703b56b5de4651e3eec0abb
