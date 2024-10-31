@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('did:ipfs Service Provider')
-    .setDescription('With this UI did:ipfs operations can be performed.')
+    .setDescription('With this UI did:ipfs operations can be performed. Read the documentation [here](https://github.com/sid030sid/did-ipfs-service-provider?tab=readme-ov-file#didipfs-service-provider).')
     .setVersion('1.0')
     .addTag('did:ipfs operations')
     .build();
