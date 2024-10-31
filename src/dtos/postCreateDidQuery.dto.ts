@@ -18,4 +18,10 @@ export class PostCreateDidQueryDto {
     required: false
   })
   tagging: boolean; // for use case of tagging data for ML model training
+
+  @ApiProperty({
+    description: 'URL for proof submission for verifiability layer.',
+    required: false
+  })
+  urlForProofSubmission: string; // for use case of verifiability layer for verifiable data replication
 }

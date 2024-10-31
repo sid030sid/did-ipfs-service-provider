@@ -32,7 +32,8 @@ export class AppController {
     @Query() query: PostCreateDidQueryDto
   ): Promise<string> {
 
-    // get query parameters in boolean format
+    // get query parameters in proper format
+    const urlForProofSubmission = query.urlForProofSubmission ? query.urlForProofSubmission : "";
     const privateDidDoc = query.privateDidDoc ? String(query.privateDidDoc) === "true" : false;
     const tagging = query.tagging ? String(query.tagging) === "true" : false;
     const queryable = query.queryable ? String(query.queryable) === "true" : false;
@@ -71,39 +72,44 @@ export class AppController {
 
     // construct did document given query parameters tagging, queryable, and body content
     const didDocument = {
-        "@context": [
-            "https://www.w3.org/ns/did/v1",
-            "https://identity.foundation/.well-known/did-configuration/v1",
-            "https://w3id.org/security/suites/ed25519-2020/v1"
-        ],
-        "id": "did:ipfs:CID_PLACEHOLDER",
-        "controller": [
-          process.env.DID
-        ],
-        "verificationMethod": [
-            {
-            "id": "did:ipfs:CID_PLACEHOLDER#key-1",
-            "type": "JasonWebKey2020",
-            "controller": "did:ipfs:CID_PLACEHOLDER",
-            "publicKeyJwk": jwk
-            }
-        ],
-        "authentication": [
-            "did:ipfs:CID_PLACEHOLDER#key-1"
-        ],
-        "service": [
-            {
-            "id": "did:ipfs:CID_PLACEHOLDER#tags",
-            "type": "LinkedTags",
-            "serviceEndpoint": tags
-            },
-            {
-                "id": "did:ipfs:CID_PLACEHOLDER#queryProperties",
-                "type": "LinkedQueryProperties",
-                "serviceEndpoint": queryProperties
-            },
-        ],
-        "file": base64FileString //TODO in future: allow multiple files
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://identity.foundation/.well-known/did-configuration/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "did:ipfs:CID_PLACEHOLDER",
+      "controller": [
+        process.env.DID
+      ],
+      "verificationMethod": [
+        {
+          "id": "did:ipfs:CID_PLACEHOLDER#key-1",
+          "type": "JasonWebKey2020",
+          "controller": "did:ipfs:CID_PLACEHOLDER",
+          "publicKeyJwk": jwk
+        }
+      ],
+      "authentication": [
+          "did:ipfs:CID_PLACEHOLDER#key-1"
+      ],
+      "service": [
+        {
+          "id": "did:ipfs:CID_PLACEHOLDER#tags",
+          "type": "LinkedTags",
+          "serviceEndpoint": tags
+        },
+        {
+          "id": "did:ipfs:CID_PLACEHOLDER#queryProperties",
+          "type": "LinkedQueryProperties",
+          "serviceEndpoint": queryProperties
+        },
+        {
+          "id": "did:ipfs:CID_PLACEHOLDER#urlsForProofSubmission",
+          "type": "LinkedDomains",
+          "serviceEndpoint": [urlForProofSubmission]
+        }
+      ],
+      "file": base64FileString //TODO in future: allow multiple files
     }
     
     // upload did document to ipfs
