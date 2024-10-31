@@ -33,6 +33,66 @@ To create private DID Documents, simply set the `privateDidDoc` query parameter 
 
 
 ## About _did:ipfs_
+
+### _did:ipfs_ DID Document Data Model
+_did:ipfs_ DID Documents contain the following attributes:
+1. **id**: IPFS CID based identifier
+2. **controller**: string array containing DID of _did:ipfs_ controllers (**Note**: DID controllers can be of any DID method)
+3. **verificationMethod**: array of public JWKs that belong to the underlying _did:ipfs_
+4. **authentication**: string array of public keys listed in ``verificationMethod`` that can be used to authenticate the underlying _did:ipfs_
+5. **service**: array of _did:ipfs_ services which possibly unlock full potential of IPFS and solve its limitations
+6. **file**: Base64 encoded string containing any additional data
+
+```json Example did:ipfs DID Document
+{
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://identity.foundation/.well-known/did-configuration/v1",
+      "https://w3id.org/security/suites/ed25519-2020/v1"
+    ],
+    "id": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq",
+    "controller": [
+      "did:key:aSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTHpz9vMPyMbXuB4YCoTwbgXb5x9hnrkL9Adpqj6vVMEQnyDiQzv9ZLVCYne6Vz2vbmPmaJxxseoxK5R1GHmcJ2Nuf"
+    ],
+    "verificationMethod": [
+      {
+        "id": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq#key-1",
+        "type": "JasonWebKey2020",
+        "controller": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "x": "04SvqS8lppFTbFx7z-sYJZ_G7tGfDX6o3TiKXjii8Ng",
+          "y": "CGE-oj_o0bvKK7m9hFDtzPKctMuII6o9BUlP9bPIu6Y",
+          "crv": "P-256"
+        }
+      }
+    ],
+    "authentication": [
+      "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq#key-1"
+    ],
+    "service": [
+      {
+        "id": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq#tags",
+        "type": "LinkedTags",
+        "serviceEndpoint": []
+      },
+      {
+        "id": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq#queryProperties",
+        "type": "LinkedQueryProperties",
+        "serviceEndpoint": []
+      },
+      {
+        "id": "did:ipfs:bafybeifdgx4cjqku3kmu2sqs3vzgvn2stcu3qj52j3hg67bdte2iw3uoqq#urlsForProofSubmission",
+        "type": "LinkedDomains",
+        "serviceEndpoint": [
+          ""
+        ]
+      }
+    ],
+    "file": "file in Base64"
+}
+```
+
 ### Utility of _did:ipfs_ as a DID Method
 As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
