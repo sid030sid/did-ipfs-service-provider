@@ -42,3 +42,17 @@ note: this survey on DID methods was condsiderd for the comparative analysis: ht
 1. add trustworthy timestamp to each did:ipfs (e. g. with QTSPs)
 2. enable the creation of different DID Document versions for each DID (with did:cheqd as role model)
 3. add did:ipfs to [DIF's universal resolver](https://dev.uniresolver.io/)
+
+
+# Devpost About page for DIF Hackathon
+## What is _did:ipfs_?
+
+## What inspired me to create _did:ipfs_?
+
+## What I learned creating _did:ipfs_?
+
+## How I built _did:ipfs_?
+
+## What challenges did I face during creation of _did:ifps_?
+
+## What's next for _did:ipfs_?

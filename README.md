@@ -1,41 +1,57 @@
 # did:ipfs service provider
-This repo contains a service provider for did:ipfs operations. The did:ipfs service provider is an API that can be locally run and used via Swagger UI.
+This repository provides a service for managing _did:ipfs_ operations. The `did:ipfs service provider` is a [nestjs](https://nestjs.com/) API that can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction). _did:ipfs_ is a new Decentralized Identifier (DID) method designed to enhance the identification of files in IPFS, unlocking its full potential and addressing some of IPFS’s core limitations (See more).
 
 ## Set up
-1. npm install
+1. run ``npm install`` in terminal while in root folder
 2. create `.env` file in root folder
 3. add Pinata releated environment variables to `.env` file:
-    - ``PINATA_API_JWT``: stores the API Access token for Pinata's APIs
-    - ``PINATA_API_GATEWAY``: stores the user specific IPFS gateway hosted by Pinata 
-4. add DID used as controller for did:ipfs DIDs: 
+    - ``PINATA_API_JWT``: stores your API Access token for Pinata's APIs
+    - ``PINATA_API_GATEWAY``: stores your personal IPFS gateway hosted by Pinata 
+    note: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
+4. add DID used as controller for _did:ipfs_ DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
     - Option 2:
         1. add your already existing DID's private and public key as pem files, named `private.pem` and `public.pem` in folder ``certs`` 
         2. add env varibale `DID` to `.env` file and set it to your DID
-        (note: this option has not been tested, use with caution)
-5. run `npm start` or `npm run start:dev` in terminal while being in root folder
+        note: this option has not been tested, use with caution
+5. run `npm start` in terminal while being in root folder
 6. open Swagger UI by entering `http://localhost:3000/api` in your browser
 
 ## Usage
-### How to create a did:ipfs?
+### How to create a _did:ipfs_?
+Simply call ``/createDidIpfs`` endpoint.
 
-### How to resolve did:ipfs to its DID Document?
+### How to resolve _did:ipfs_ to its DID Document?
+Simply call ``/resolve/{didIpfs}`` endpoint while setting param `didIpfs` to the _did:ipfs_ you want to resolve.
 
-### How to create a did:ipfs with private DID Document?
-note: Private DID Documents are only possible when one uses an own IPFS Cluster for storing the DID Documents or one uses Pinata to interact with IPFS (then the Swagger UI's toggle button for private DID doc can be used!)
+### How to create a _did:ipfs_ with private DID Document?
+Simply, set the ``privateDidDoc`` query value to `true` while calling the ``/createDidIpfs`` endpoint. Please note, that as of now the ``_did:ipfs_ service provider`` relies on [Pinata's File API](https://pinata.cloud/features#file-api) for creating private DID Documents. Alternative ways to attain privacy for did:ifps DID Documents are theoretically possible, for instance using private [IPFS Clusters](https://ipfscluster.io/).
 
-# Devpost About page for DIF Hackathon
-## What is _did:ipfs_?
+### How to use 
 
-## What I inspired me to create _did:ipfs_?
 
-## What I learned creating _did:ipfs_?
+## About _did:ipfs
+### Utility of _did:ipfs_ as a DID method
+As a DID method, _did:ipfs_ provides unique and valuable DID properties, such as:
+1. Unlimited data scalability: _did:ipfs_ DID Documents are not limited in their size. With this property, _did:ipfs_ trumps other DID methods because Blockchain based DID methods, such as did:cheqd, are limited by block size and off-chain based DID methods, such as did:key or did:web, are limited by their given off-chain environment and resources.
+2. Flexible visibility: _did:ipfs_ DID Documents
+3. Immutability: _did:ipfs_ DID Documents are immutbale due to usage of [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as method specific ID. Thsi data immutability makes DID Document update operations obsolete. This can be either regarded as a limitation or a valuable property that unlocks new use cases.
 
-## How I built _did:ipfs_?
+Note: Comparing _did:ipfs_ with other DID methods is part of future work. It is especially important to differentiate _did:ipfs_ from the only other IPFS based DID method: [did:ipid](https://did-ipid.github.io/ipid-did-method/). 
 
-## What challenges did I face during creation of _did:ifps?
+### Utility of _did:ipfs_ as an identification of IPFS files
+1. Secure authorship documentation: _did:ipfs_ DID Documents name the DID controller which is the uploader of the file stored as base 64 string in the file attribute of _did:ipfs_ DID Documents. Therefore, _did:ipfs_ provides a simple solution to record authorship of content uploaded to IPFS without the need to store CIDs on-chain which is limited by Blockchain's limited performance scalability and high cost per transaction. To further enhance the trust in the authorship documentation, _did:ipfs_ will enable DID controllers to sign their content stored in attribute file prior DID creation. This measure adds cryptographic security to the authorship documentation.
+2. With the provision of an authentication key for IPFS files, _did:ipfs_ allows humans and machines to interact with IPFS files. --> what is good about this?
+3. Extanable/unlimited utility due to _did:ipfs_ services: ...
 
-## What's next for _did:ipfs_?
+### Why
 
-# NOTE: self-referential CIDs
-[W3C's note on intermediate representations of DID Documents](https://www.w3.org/TR/did-core/#did-subject) allows did:ipfs to store a non-comformant DID Document as long as the fully resolved DID Documenent. This enables did:ipfs to bypass the issue of self-referential CIDs which occurs when a IPFS file wants to mention in its content its own CID.
+## FAQ
+### Is _did:ipfs_ complaint with W3C's DID standard?
+The W3C defined a standard for DIDs (See [here](https://www.w3.org/TR/did-core/)). _did:ipfs_ was invented considering this standard, but as of now _did:ipfs_'s full compliance has not yet been focal for _did:ipfs_. So far, _did:ipfs_ serves to extend the identification of IPFS 
+
+### How does the ``did:ipfs service provider`` enable self-referential CIDs?
+_did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as method specific identifiers. CIDs are generated by their underlying IPFS file's content. This means that the content of IPFS files determines their CID, raising the question of how _did:ipfs_ is able to store DID Documents in IPFS that contain the did:ipfs id and thus the CID which 
+[W3C's note on intermediate representations of DID Documents](https://www.w3.org/TR/did-core/#did-subject) allows _did:ipfs_ to store a non-comformant DID Document version in IPFS as long as the fully resolved DID Documenent is conformant with W3C's DID Document standard. This enables _did:ipfs_ to bypass the issue of self-referential CIDs which occurs when a IPFS file wants to mention in its content its own CID.
+
+
