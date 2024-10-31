@@ -13,5 +13,10 @@
     "cid": "bafybeib3rq6nhg3syysegc52comqgowzai4tmqyyflfjnjj353bfkwg23i",
     "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE43rsqws/JO33NEnA9LcbH/wRGSguNl57Yv7AFGy+3K3nWEaNw8+msGE4Im7snT28VnbwSNI6yM3g9BhcP3Ua3g==",
     "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgGozi7oYG7S8bxmiVTHhjAxJIU7Zp2A32Ps0sGjKf50ShRANCAATjeuyrCz8k7fc0ScD0txsf/BEZKC42Xnti/sAUbL7credYRo3Dz6awYTgibuydPbxWdvBI0jrIzeD0GFw/dRre"
+  },
+  {
+    "cid": "bafkreieh27lunkam4qugmkzu5dzfrnibshs2fg5dh3ywlyo7saw6mz6f7a",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEhpfF8paLHvoWlfsm2LdpIsUOUAMziEACUMdrRQ1qw+xIPRpl7UyNbz35E2tLO6haSTKkIo6ub+70WDbA/Y25TQ==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgyGw1iFfKlRWLr2eNA04FiHzGrAmfbaLXDcwYQBPSY6ehRANCAASGl8Xylose+haV+ybYt2kixQ5QAzOIQAJQx2tFDWrD7Eg9GmXtTI1vPfkTa0s7qFpJMqQijq5v7vRYNsD9jblN"
   }
 ]
