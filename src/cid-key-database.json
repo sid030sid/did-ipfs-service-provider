@@ -23,5 +23,15 @@
     "cid": "bafkreidaahy2nlbzkkq2d32ekdbogn4efyak4gngso5v7za6ldaz67bxi4",
     "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZlOSZi09cMahd4kGBB9dBUWEYLuT497r4Dnz37qixiRo7scqwFpaUHjlBsgovognlgH79pnoxBOgT6mG0RoYaw==",
     "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgZ5vJdoZgounvOeUA4v40cer6Usj3AIhLbnjnzjYwYlGhRANCAARmU5JmLT1wxqF3iQYEH10FRYRgu5Pj3uvgOfPfuqLGJGjuxyrAWlpQeOUGyCi+iCeWAfv2mejEE6BPqYbRGhhr"
+  },
+  {
+    "cid": "bafkreighedzhx6hge36yu7jh63jld2rorrgumyzfog6g5ijnm3slmx3dzu",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEMziUA+DZd7+wQVi8+x7NMktwGJ4ZpcySROAFRcNpMlSvP8P854yGW11LDnDuOdEJ2ducdHx6f4Mf0dPT28JGeQ==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgLBEQMsytur52RFEK9fmVje2Jra8h6qXHmZjTrEYGo9ChRANCAAQzOJQD4Nl3v7BBWLz7Hs0yS3AYnhmlzJJE4AVFw2kyVK8/w/znjIZbXUsOcO450QnZ25x0fHp/gx/R09PbwkZ5"
+  },
+  {
+    "cid": "bafkreicwdt7a456amx55coemizq2ohehoqcqmgftfrujeflmkre35b644i",
+    "publicKey": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE9x4RZ0Bt0mkLR29UAz/QP0sSmrmpB1uVl3YxyHDF6OELGuzPPDCqGY+MI5UP9S/iL/MtSseHh1+CjwZdFO9Esw==",
+    "privateKey": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgB5oQk+rgB+8MY1fRYT6oXqHK6iruieeQ9H1Fcf8D01WhRANCAAT3HhFnQG3SaQtHb1QDP9A/SxKauakHW5WXdjHIcMXo4Qsa7M88MKoZj4wjlQ/1L+Iv8y1Kx4eHX4KPBl0U70Sz"
   }
 ]

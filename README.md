@@ -2,7 +2,7 @@
 This repository introduces _did:ipfs_ and the `did:ipfs service provider`. _did:ipfs_ is a novel Decentralized Identifier (DID) method designed to enhance the identification of files in the [InterPlanetary File System (IPFS)](https://ipfs.tech/), unlocking its full potential and addressing some of its core limitations (see more [here](#utility-of-didipfs-for-identifying-ipfs-files)). Additionally, _did:ipfs_ offers distinct DID properties that augment existing DID methods, enriching the overall landscape of DIDs (see more [here](#utility-of-didipfs-as-a-did-method)). The `did:ipfs service provider` is a [NestJs](https://nestjs.com/) API for performing _did:ipfs_ operations, such as DID creation and resolution. The API can be run locally and accessed through [Swagger UI](https://docs.nestjs.com/openapi/introduction).
 
 ## Setting up the `did:ipfs service provider`
-1. run ``npm install`` in terminal while in root folder
+1. run ``npm install`` in terminal while in root folder (**Note**: NodeJS v20.8.1 was used for implementation)
 2. create `.env` file in root folder
 3. add Pinata releated environment variables to `.env` file:
     - ``PINATA_API_JWT``: stores your API Access token for Pinata's APIs
