@@ -8,19 +8,19 @@ export class PostCreateDidQueryDto {
   privateDidDoc: boolean;
   
   @ApiProperty({
-    description: 'If true, file in did:ipfs DID Document is queryable through IPFS search engine.',
+    description: 'If true, file in did:ipfs DID Document can be queried through IPFS search engine.',
     required: false
   })
   queryable: boolean; //for use case of IPFS content based search engine 
 
   @ApiProperty({
-    description: 'If true, file in did:ipfs DID Document is provided to data market of Machine Learning training data.',
+    description: 'If true, file in did:ipfs DID Document is tagged for efficient Machine Learning training.',
     required: false
   })
   tagging: boolean; // for use case of tagging data for ML model training
 
   @ApiProperty({
-    description: 'URL for proof submission between file uploader (= DID controller) and IPFS node operators.',
+    description: 'URL for receiving proofs by IPFS node operators.',
     required: false
   })
   urlForProofSubmission: string; // for use case of verifiability layer for verifiable data replication
