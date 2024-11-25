@@ -100,7 +100,7 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
 2. **Flexible Visibility:** The storage location for _did:ipfs_ DID Documents is customizable by DID controllers at creation. Currently, _did:ipfs_  Documents can be stored in public IPFS or privately in IPFS via Pinata's File API. This flexibility allows DID Documents to be set as public or private (more details [here](#how-to-create-a-didipfs-with-private-did-document)).
 
-3. **Immutability:** _did:ipfs_  Documents are immutable, as they use [Content Identifiers (CIDs)](https://docs.ipfs.tech/concepts/content-addressing/) as the method-specific ID. This immutability removes the need for Document updates, which can be seen either as a limitation or as an advantage, enabling new applications for diverse use cases.
+3. **Immutability:** _did:ipfs_  Documents are immutable, as they use [Content Identifiers (CIDs)](https://docs.ipfs.tech/concepts/content-addressing/) as the method-specific ID. This immutability removes the need for DID Document updates, which can be seen either as a limitation or as an advantage, enabling new applications for diverse use cases.
 
 4. **DID Interoperability**: Controllers of _did:ipfs_ DID Documents can register as controllers using a DID from any method (such as IPFS, key, cheqd, etc.), enhancing interoperability across different DID systems.
 
