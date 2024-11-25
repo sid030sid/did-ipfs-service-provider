@@ -1,0 +1,3 @@
+discuss moving the public key from verification method to inside authentication array: https://www.w3.org/TR/did-core/#referring-to-verification-methods --> this would make the did not integrateable in key agreements tho!!!
+discuss did controller: as of now the did controller only useful to attest the uploader of the ipfs file inside did doc its status of authorship --> usually the did controller is mentioned so that the underlying blockchain of a DID method knows that that did holder is allowed to change the did document
+extend the comparative analysis by more aspects that differentiat did:ipfs form other did methods
