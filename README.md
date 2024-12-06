@@ -8,7 +8,6 @@ This repository introduces _did:ipfs_ and the `did:ipfs service provider`. _did:
 2. create `.env` file in root folder and add Pinata releated environment variables to `.env` file:
   - ``PINATA_API_JWT``: stores your API Access token for Pinata's APIs
   - ``PINATA_API_GATEWAY``: stores your personal IPFS gateway hosted by Pinata 
-
   **Note**: To get your Pinata JWT and gateway, please consider this [guide](https://docs.pinata.cloud/quickstart).
 3. add DID used as controller for _did:ipfs_ DIDs: 
     - Option 1: generate did:key by running `node generateDidKey.js` in terminal while being in root folder
@@ -123,6 +122,20 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
    - **IPFS for Machine Learning Training:** IPFS hosts a wealth of data valuable for Machine Learning (ML) ([source](https://www.researchgate.net/publication/339657216_Decentralized_Transfer_Learning_using_Blockchain_IPFS_for_Deep_Learning), [source](https://discuss.ipfs.tech/t/reasons-why-ipfs-is-a-powerful-tool-for-machine-learning/13411/3), [source](https://dl.acm.org/doi/10.1007/s11042-022-13163-w)). However, for ML data to be usable, it must be organized systematically. _did:ipfs_ can assist by storing tags within service endpoints, categorizing files by type, format, content and other aspects relevant for ML. The currently implemented `did:ipfs service provider` shows how the "tags" service endpoint could hold metadata that makes files in the "file" attribute ready and discoverable for ML training. Moreover, combined with uploader record-keeping (see `1. Secure Documentation of Authorship`), _did:ipfs_ could support a marketplace for IPFS-based training data, connecting data owners with model developers.
 
+### Comaparative analysis
+In this section, _did:ipfs_ is compared to the most commonly used DID methods and other IPFS based DID Methods.
+
+#### Comparison with other IPFS based DID Methods
+IPFS based DID methods use IPFS or IPFS like technology for their use functionality. In the following they are compared to _did:ipfs_.
+
+##### Comparison with did:ipid
+TODO
+
+##### Comparison with did:ion
+IPFS based layer 2 of Bitcoin.... TODO
+
+##### Comparison with did:dht
+TODO
 
 
 ### FAQ
