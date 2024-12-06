@@ -126,16 +126,20 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 ### Comaparative analysis
 In this section, _did:ipfs_ is compared to the most commonly used DID methods and other IPFS based DID Methods.
 
-#### Comparison with other IPFS based DID Methods
-IPFS based DID methods use IPFS or IPFS like technology for their use functionality. In the following they are compared to _did:ipfs_.
+#### Comparison with other IPFS based DID methods
 
 ##### Comparison with did:ipid
-TODO
+did:ipid DID Documents are stored in IPFS while their CID is published in IPNS through a IPFS node. The resulting did:ipid is constructed by using the id of the publishing IPFS node which is based the public and private key pair of type ed25519. ... TODO...
 
 ##### Comparison with did:ion
 IPFS based layer 2 of Bitcoin.... TODO
 
 ##### Comparison with did:dht
+TODO
+
+#### Comparison with commonly used DID methods
+
+##### Comparison did:key
 TODO
 
 
