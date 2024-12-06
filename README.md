@@ -40,9 +40,10 @@ _did:ipfs_ DID Documents contain the following attributes:
 3. **verificationMethod**: array of public JWKs that belong to the underlying _did:ipfs_
 4. **authentication**: string array of public keys listed in ``verificationMethod`` that can be used to authenticate the underlying _did:ipfs_
 5. **service**: array of _did:ipfs_ services which possibly unlock full potential of IPFS and solve its limitations
-6. **file**: Base64 encoded string containing any additional data
+6. **file**: Base64 encoded string containing any additional data (**Note**: alternatively this attribute can be removed if the DID Controller creates a Verifiable Presentation of the file and stores it as [Linked Verifiable Presentation](https://identity.foundation/linked-vp/) in the service section of the DID Document using a service endpoint with the DID Document internal URL `#file` as service id.)
 
-```json Example did:ipfs DID Document
+Example did:ipfs DID Document:
+```json 
 {
     "@context": [
       "https://www.w3.org/ns/did/v1",
