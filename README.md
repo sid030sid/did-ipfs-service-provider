@@ -143,15 +143,15 @@ TODO
 TODO
 
 
-### FAQ
+## FAQ
 
-#### Is _did:ipfs_ compliant with the W3C DID standard?
+### Is _did:ipfs_ compliant with the W3C DID standard?
 The W3C has established a standard for DIDs (see [here](https://www.w3.org/TR/did-core/)). While _did:ipfs_ was developed with this standard in mind, full compliance has not been verified so far. Currently, _did:ipfs_ is primarily designed to extend file identification capabilities within IPFS. As _did:ipfs_ demonstrates its utility as a DID method, future work will focus on ensuring full compliance with the W3C DID standard and integration with the [DIF Universal Resolver](https://dev.uniresolver.io/).
 
-#### How does the `did:ipfs service provider` handle self-referential CIDs?
+### How does the `did:ipfs service provider` handle self-referential CIDs?
 _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as method-specific identifiers, with each CID being derived from the content of its IPFS file. Since a file’s CID is directly determined by its content, this poses a challenge: how can _did:ipfs_ store DID Documents in IPFS that include their own `did:ipfs` ID (and thus the CID)? According to the [W3C’s guidance on intermediate representations of DID Documents](https://www.w3.org/TR/did-core/#did-subject), _did:ipfs_ can store a non-compliant version of a DID Document in IPFS, provided that the fully resolved DID Document meets W3C standards. This approach allows _did:ipfs_ to avoid issues with self-referential CIDs, enabling files in IPFS to reference their own CID within their content.
 
-### Future Work
+## Future Work
 1. Enhance error handling for the `did:ipfs service provider`.
 2. Achieve full compliance of _did:ipfs_ with the W3C DID standard and DIF’s Universal Resolver.
 3. Conduct a comprehensive comparative analysis between _did:ipfs_ and other DID methods.
@@ -159,5 +159,5 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 5. Strengthen IPFS data permanence by facilitating connections between file uploaders and IPFS node operators for exchanging storage proofs to ensure permanence guarantees.
 6. Implement trustworthy timestamps within did:ipfs DID Documents, potentially through the integration of Qualified Trust Service Providers (QTSPs).
 
-### Acknowledgements
+## Acknowledgements
 I thank the following persons which helped the project through insightful discussions: [Juan Caballero](https://www.linkedin.com/in/juan-caballero/)
