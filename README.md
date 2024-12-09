@@ -158,3 +158,6 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 4. Develop _did:ipfs_ services, such as an IPFS search engine and an IPFS-based machine learning data marketplace.
 5. Strengthen IPFS data permanence by facilitating connections between file uploaders and IPFS node operators for exchanging storage proofs to ensure permanence guarantees.
 6. Implement trustworthy timestamps within did:ipfs DID Documents, potentially through the integration of Qualified Trust Service Providers (QTSPs).
+
+### Acknowledgements
+I thank the following persons which helped the project through insightful discussions: [Juan Caballero](https://www.linkedin.com/in/juan-caballero/)
