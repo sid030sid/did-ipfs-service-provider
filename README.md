@@ -119,23 +119,29 @@ As a DID method, _did:ipfs_ offers several unique and valuable properties:
 
    - **Connecting Uploaders and Node Operators in IPFS:** Since DID controllers in _did:ipfs_ are the uploaders of files stored in the "file" attribute, IPFS node operators (who store these files) can connect with the uploaders. This connection can be established by storing a communication URL in a LinkedDomains service endpoint within the DID Document. This allows node operators to submit proofs of data storage, helping to ensure data permanence and build trust in IPFS’s ability to retain files, countering concerns due to node operator anonymity and lack of storage incentives.
 
-   - **IPFS Search Engine:** IPFS files can only be found based on their CID, limiting internet users to explore the diverse content stored in IPFS ([source](https://discuss.ipfs.tech/t/ipfs-search-com-shutdown/16622)). _did:ipfs_ can add a metadata layer essential for making IPFS files searchable based on their content. By adding a "queryProperties" service endpoint to DID Documents, _did:ipfs_ can store metadata about the file in the "file" attribute, making content more easily findable through search engines. Therefore, _did:ipfs_ can be the basis for a dedicated IPFS search engine.
+   - **IPFS Search Engine:** IPFS files can only be found based on their CID, limiting internet users to explore the diverse content stored in IPFS ([source](https://discuss.ipfs.tech/t/ipfs-search-com-shutdown/16622)). _did:ipfs_ can add a metadata layer essential for making IPFS files searchable based on their content. By adding a "queryProperties" service endpoint to DID Documents, _did:ipfs_ can store metadata about the file in the "file" attribute, making content more easily findable through search engines. Therefore, _did:ipfs_ can be the basis for a dedicated IPFS search engine such as proposed in [this paper](https://ieeexplore.ieee.org/document/8958437).
 
    - **IPFS for Machine Learning Training:** IPFS hosts a wealth of data valuable for Machine Learning (ML) ([source](https://www.researchgate.net/publication/339657216_Decentralized_Transfer_Learning_using_Blockchain_IPFS_for_Deep_Learning), [source](https://discuss.ipfs.tech/t/reasons-why-ipfs-is-a-powerful-tool-for-machine-learning/13411/3), [source](https://dl.acm.org/doi/10.1007/s11042-022-13163-w)). However, for ML data to be usable, it must be organized systematically. _did:ipfs_ can assist by storing tags within service endpoints, categorizing files by type, format, content and other aspects relevant for ML. The currently implemented `did:ipfs service provider` shows how the "tags" service endpoint could hold metadata that makes files in the "file" attribute ready and discoverable for ML training. Moreover, combined with uploader record-keeping (see `1. Secure Documentation of Authorship`), _did:ipfs_ could support a marketplace for IPFS-based training data, connecting data owners with model developers.
 
 ### Comaparative analysis
-In this section, _did:ipfs_ is compared to the most commonly used DID methods and other IPFS based DID Methods.
+In this section, _did:ipfs_ is compared to the most commonly used DID methods and other IPFS based DID Methods. The comparison criterias are based on the [DID traits](https://identity.foundation/did-traits/) defined by the Decentralized Identity Foundation.
 
 #### Comparison with other IPFS based DID methods
 
 ##### Comparison with did:ipid
-did:ipid DID Documents are stored in IPFS while their CID is published in IPNS through a IPFS node. The resulting did:ipid is constructed by using the id of the publishing IPFS node which is based the public and private key pair of type ed25519. ... TODO...
+[did:ipid](https://did-ipid.github.io/ipid-did-method/) DID Documents are stored in IPFS while their CID is published in IPNS through a IPFS node. The resulting did:ipid is constructed by using the id of the publishing IPFS node which is based the public and private key pair of type ed25519. ... TODO...
 
 ##### Comparison with did:ion
-IPFS based layer 2 of Bitcoin.... TODO
+[did:ion](https://github.com/decentralized-identity/ion) uses IPFS as a layer 2 technology on top of Bitcoin. TODO
 
 ##### Comparison with did:dht
-TODO
+[did:dht](https://github.com/decentralized-identity/did-dht) relies on DHT technology at its heart jut like IPFS does, hence did:ifps as well.
+
+##### Comparison with did:jolo
+[did:jolo](https://github.com/jolocom/jolo-did-method/blob/master/jolocom-did-method-specification.md) TODO 
+
+##### Comparison with did:btc1
+[did:btc1](https://github.com/dcdpr/did-btc1) TODO 
 
 #### Comparison with commonly used DID methods
 
@@ -160,4 +166,4 @@ _did:ipfs_ uses [CIDs](https://docs.ipfs.tech/concepts/content-addressing/) as m
 6. Implement trustworthy timestamps within did:ipfs DID Documents, potentially through the integration of Qualified Trust Service Providers (QTSPs).
 
 ## Acknowledgements
-I thank the following persons which helped the project through insightful discussions: [Juan Caballero](https://www.linkedin.com/in/juan-caballero/)
+I thank the following persons which helped the project through insightful discussions: [Markus Sabadello](https://www.linkedin.com/in/markus-sabadello-353a0821/), [Juan Caballero](https://www.linkedin.com/in/juan-caballero/), and the members of the "Id" Working Group of the Decentralized Identity Foundation.
